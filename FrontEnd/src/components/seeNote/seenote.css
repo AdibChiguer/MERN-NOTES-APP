@@ -1,0 +1,184 @@
+.Seenote-container {
+  width: calc(100vw - 360px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+}
+
+.title-input input{
+  padding: 1rem 0rem ;
+  width: 300px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color:  #67a7fb;
+}
+
+.title-input input::placeholder {
+  color:  #67a7fb;
+}
+
+.btn {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn button {
+  width: 100%;
+  background-color: #67a7fb;
+  padding: 0.9rem;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.note-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.note-container textarea {
+  resize: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  font-size: 20px;
+}
+
+.note-container textarea::placeholder {
+  color: gainsboro;
+}
+
+.backHomeBtn {
+  width: 120px;
+  border-radius : 5px;
+  background-color: transparent;  
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor : pointer;
+  margin-right: 1.5rem;
+}
+
+.backHomeBtn a {
+  display: flex;
+  color : #67a7fb ;
+  gap : 1rem;
+  text-decoration : none;
+  padding : 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.backHomeBtn a p{
+  display: block;
+}
+
+@media only screen and (width <= 1024px) {
+  .Seenote-container {
+    width: calc(100vw - 300px);
+  }
+}
+
+@media only screen and (width <= 830px) {
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem;
+  }
+
+  .title-input input{
+    width: 190px;
+  }
+
+  .btn {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .btn button {
+    padding: 0.9rem 0.5rem;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  
+  .backHomeBtn {
+    width: 120px;
+    border-radius : 5px;
+    background-color: transparent;  
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor : pointer;
+    margin-right: 0.5rem;
+  }
+}
+
+@media only screen and (width <= 790px) {
+  .Seenote-container {
+    width: 100%;
+  }
+}
+
+@media only screen and (width <= 490px) {
+  .title-container {
+    padding: 0.5rem;
+  }
+
+  .btn {
+    display: flex;
+    gap: 0.2rem;
+    margin-left: 0.5rem;
+  }
+
+  .btn button {
+    padding: 0.9rem 0.5rem;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  
+  .backHomeBtn {
+    width: 100px;
+    margin-right: 0.2rem;
+  }
+
+  .backHomeBtn a {
+    gap : 0.5rem;
+    padding : 1rem 0.5rem;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (width <= 400px) {
+  .backHomeBtn {
+    width: 40px;
+    margin-right: 0.5rem;
+  }
+
+  .backHomeBtn a p{
+    display: none;
+  }
+
+  .backHomeBtn a svg{
+    width: 100%;
+    scale: 1.5;
+  }
+
+  .title-input input{
+    width: 130px;
+  }
+}

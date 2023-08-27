@@ -21,7 +21,7 @@ const SignUp = () => {
       setErr('please fill all the fields')
       return;
     }
-    await axios.post('http://localhost:5000/signup', {
+    await axios.post('https://mern-notes-app-65gy.onrender.com/signup', {
       username: user.userName,
       email: user.email,
       password: user.password

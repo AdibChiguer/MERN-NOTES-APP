@@ -38,7 +38,7 @@ const CreateNote = ({onSave , user}) => {
       return
     }
     try {
-      await axios.post('http://localhost:5000/note', {
+      await axios.post('https://mern-notes-app-65gy.onrender.com/note', {
         title: newNote.title,
         body: newNote.body,
         user: newNote.user,

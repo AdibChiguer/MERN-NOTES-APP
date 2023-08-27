@@ -42,7 +42,7 @@ function App() {
 
   async function checkAuth() {
     try {
-      const response = await axios.post('http://localhost:5000/check-auth', {
+      const response = await axios.post('https://mern-notes-app-65gy.onrender.com/check-auth', {
         token: localStorage.getItem('token'),
       });
       setIsLoggedIn(response.data.islogedIn);
@@ -59,7 +59,7 @@ function App() {
   }
 
   function getAllNotes(user) {    
-    axios.get(`http://localhost:5000/notes?_id=${user._id}`)    
+    axios.get(`https://mern-notes-app-65gy.onrender.com/notes?_id=${user._id}`)    
     .then((res) => {
       const allNotes = res.data.notes; 
       setNotes(allNotes); 

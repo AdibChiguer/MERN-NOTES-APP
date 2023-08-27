@@ -26,7 +26,7 @@ const Login = () => {
       setErr('please fill all the fields')
       return;
     }
-    await axios.post('http://localhost:5000/login', {
+    await axios.post('https://mern-notes-app-65gy.onrender.com/login', {
       email: user.email,
       password: user.password
     })

@@ -22,7 +22,7 @@ const SeeNote = ({onSave , user}) => {
   } , [id])
 
   function getNote(id) {
-    axios.get(`http://localhost:5000/note?n=${id}&_id=${user._id}`)
+    axios.get(`https://mern-notes-app-65gy.onrender.com/note?n=${id}&_id=${user._id}`)
     .then((res) => {
       const resNote = res.data.note;
       setNote({
@@ -58,7 +58,7 @@ const SeeNote = ({onSave , user}) => {
   }
 
   function UpdateNote(n){
-    axios.put(`http://localhost:5000/note?n=${n._id}&_id=${user._id}`, {
+    axios.put(`https://mern-notes-app-65gy.onrender.com/note?n=${n._id}&_id=${user._id}`, {
       title: n.title,
       body: n.body,
     })
@@ -80,7 +80,7 @@ const SeeNote = ({onSave , user}) => {
   }
 
   async function DeleteNote(n){
-    await axios.delete(`http://localhost:5000/note?n=${n._id}&_id=${user._id}`)
+    await axios.delete(`https://mern-notes-app-65gy.onrender.com/note?n=${n._id}&_id=${user._id}`)
     .then((res) => {
       onSave(note);
       Swal.fire(

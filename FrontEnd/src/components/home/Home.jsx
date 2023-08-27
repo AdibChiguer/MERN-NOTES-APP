@@ -19,7 +19,6 @@ const Home = ({Width , ontoggele}) => {
         <img src={svg} alt="" />
         <h2>click on new note to create one</h2>
       </div>
-      {/* {Width < 800 && <h2>or</h2>} */}
     </div>
   )
 }

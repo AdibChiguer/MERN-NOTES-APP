@@ -38,6 +38,12 @@ const CreateNote = ({onSave , user}) => {
       return
     }
     try {
+      if (newNote.title === '') {
+        setNewNote((prevNote) => ({
+          ...prevNote,
+          title: 'Untitled',
+        }));
+      }
       await axios.post('https://mern-notes-app-65gy.onrender.com/note', {
         title: newNote.title,
         body: newNote.body,

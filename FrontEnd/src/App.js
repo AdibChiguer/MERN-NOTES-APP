@@ -10,6 +10,7 @@ import SignUp from './components/signup/SignUp';
 import Login from './components/login/Login';
 import Loading from './components/loading page/Loading';
 
+
 function App() {
   const [notes , setNotes] = useState([]);
   const [isnotesChange , setIseNotesChange] = useState(false);

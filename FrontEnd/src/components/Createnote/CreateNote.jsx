@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 const CreateNote = ({onSave , user}) => {
-
+  const [isSubmited, setIsSubmited] = useState(false);
   const [newNote, setNewNote] = useState({
     title: '',
     body: '',
@@ -29,6 +29,7 @@ const CreateNote = ({onSave , user}) => {
   }
 
   async function save() {
+    setIsSubmited(true);
     if(newNote.body === '' ){
       Swal.fire({
         icon: 'error',
@@ -38,14 +39,12 @@ const CreateNote = ({onSave , user}) => {
       return
     }
     try {
+      let title;
       if (newNote.title === '') {
-        setNewNote((prevNote) => ({
-          ...prevNote,
-          title: 'Untitled',
-        }));
+        title = 'Untitled'
       }
       await axios.post('https://mern-notes-app-65gy.onrender.com/note', {
-        title: newNote.title,
+        title,
         body: newNote.body,
         user: newNote.user,
       })
@@ -55,6 +54,7 @@ const CreateNote = ({onSave , user}) => {
     } catch (error) {
       console.error('Error saving note:', error);
     }
+    setIsSubmited(false);
   }
 
   return (
@@ -72,7 +72,7 @@ const CreateNote = ({onSave , user}) => {
           />
         </div>
         <div className="btns">
-          <button onClick={save} >save</button>
+          <button onClick={save} disabled={isSubmited} >save</button>
         </div>
       </div>
       <div className="note-container">

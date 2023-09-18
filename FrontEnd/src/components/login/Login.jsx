@@ -5,7 +5,7 @@ import axios from 'axios'
 import './login.css'
 
 const Login = () => {
-
+  const [isSubmited, setIsSubmited] = useState(false);
   const [user , setUser] = useState({
     email: '',
     password: '',
@@ -22,6 +22,7 @@ const Login = () => {
   }
 
   async function login() {
+    setIsSubmited(true);
     if (user.userName === '' || user.email === '' || user.password === '') {
       setErr('please fill all the fields')
       return;
@@ -38,6 +39,7 @@ const Login = () => {
       // console.log(err);
       setErr(err.response.data.errMessage)
     })
+    setIsSubmited(false);
   }
 
   return (
@@ -67,7 +69,7 @@ const Login = () => {
             </div>
           </div>
           <div className="signup-btn side-margin">
-            <button onClick={() => {login()}}>Log in</button>
+            <button onClick={() => {login()}} disabled={isSubmited}>{isSubmited ? 'Louding...' : 'Log in'}</button>
           </div>
         </div>
       </div>

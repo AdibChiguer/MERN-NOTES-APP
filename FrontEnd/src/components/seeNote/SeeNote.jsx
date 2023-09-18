@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 
 const SeeNote = ({onSave , user}) => {
-
+  const [isSubmited, setIsSubmited] = useState(false);
   const { id } = useParams();
   const [note, setNote] = useState({
     title: '',
@@ -58,6 +58,7 @@ const SeeNote = ({onSave , user}) => {
   }
 
   function UpdateNote(n){
+    setIsSubmited(true);
     axios.put(`https://mern-notes-app-65gy.onrender.com/note?n=${n._id}&_id=${user._id}`, {
       title: n.title,
       body: n.body,
@@ -77,9 +78,11 @@ const SeeNote = ({onSave , user}) => {
         text: 'something went wrong. try again',
       })
     })
+    setIsSubmited(false);
   }
 
   async function DeleteNote(n){
+    setIsSubmited(true);
     await axios.delete(`https://mern-notes-app-65gy.onrender.com/note?n=${n._id}&_id=${user._id}`)
     .then((res) => {
       onSave(note);
@@ -99,6 +102,7 @@ const SeeNote = ({onSave , user}) => {
         text: 'something went wrong. try again',
       })
     })
+    setIsSubmited(false);
   }
 
   function ConfirmDelete(){
@@ -131,10 +135,10 @@ const SeeNote = ({onSave , user}) => {
           />
         </div>
         <div className="btn">
-          <button onClick={() => {ConfirmDelete()}}>delete</button>
+          <button onClick={() => {ConfirmDelete()}} disabled={isSubmited}>delete</button>
           {
             isChange === true ?
-            <button onClick={() => {UpdateNote(note)}}>save</button> :
+            <button onClick={() => {UpdateNote(note)}} disabled={isSubmited}>save</button> :
             null
           }
         </div>

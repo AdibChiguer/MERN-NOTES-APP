@@ -41,7 +41,10 @@ const CreateNote = ({onSave , user}) => {
     try {
       let title;
       if (newNote.title === '') {
-        title = 'Untitled'
+        title = 'Untitled';
+      }
+      else {
+        title = newNote.title;
       }
       await axios.post('https://mern-notes-app-65gy.onrender.com/note', {
         title,

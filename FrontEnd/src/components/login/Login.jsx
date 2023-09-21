@@ -37,7 +37,8 @@ const Login = () => {
     })
     .catch(err => {
       // console.log(err);
-      setErr(err.response.data.errMessage)
+      setErr(err.response.data.errMessage);
+      setIsSubmited(false);
     })
     setIsSubmited(false);
   }

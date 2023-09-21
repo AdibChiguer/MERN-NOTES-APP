@@ -7,6 +7,7 @@ import axios from 'axios'
 
 const SignUp = () => {
 
+  const [isSubmited, setIsSubmited] = useState(false);
   const [user , setUser] = useState({
     userName: '',
     email: '',
@@ -17,6 +18,7 @@ const SignUp = () => {
 
 
   async function signup() {
+    setIsSubmited(true);
     if (user.userName === '' || user.email === '' || user.password === '') {
       setErr('please fill all the fields')
       return;
@@ -31,7 +33,9 @@ const SignUp = () => {
     })
     .catch((err) => {
       setErr(err.response.data.errMessage);
+      setIsSubmited(false);
     })
+    setIsSubmited(false);
   }
 
   function getuserName(e) {
@@ -77,7 +81,7 @@ const SignUp = () => {
             </div>
           </div>
           <div className="signup-btns side-margin">
-            <button onClick={() => {signup()}}>sign up</button>
+            <button onClick={() => {signup()}} disabled={isSubmited}>{isSubmited ? 'Loading...' : 'sign up'}</button>
           </div>
 
         </div>
